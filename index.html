@@ -1677,7 +1677,7 @@
                 <div>
                   <div class="info-bloco-titulo">Telefone &amp; WhatsApp</div>
                   <div class="info-bloco-detalhe">
-                    (21) 3000-0000 · (21) 99000-0000<br>
+                    (21) 3000-0000 · (21) 99004-0402<br>
                     Retornamos em até 2h úteis
                   </div>
                 </div>
@@ -1768,13 +1768,13 @@
                 (21) 3000-0000 — Telefone
               </a>
 
-              <a href="https://wa.me/5521990000000" target="_blank" rel="noopener noreferrer" class="contato-canal" role="listitem" aria-label="WhatsApp (21) 99000-0000">
+              <a href="https://wa.me/5521990040402" target="_blank" rel="noopener noreferrer" class="contato-canal" role="listitem" aria-label="WhatsApp (21) 99004-0402">
                 <span class="canal-icone wa" aria-hidden="true">
                   <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
                   </svg>
                 </span>
-                (21) 99000-0000 — WhatsApp
+                (21) 99004-0402 — WhatsApp
               </a>
 
               <a href="mailto:contato@fisiovita.com.br" class="contato-canal" role="listitem" aria-label="Enviar e-mail para contato@fisiovita.com.br">
@@ -1851,7 +1851,7 @@
                   <label for="telefone">Telefone / WhatsApp</label>
                   <input
                     type="tel" id="telefone" name="telefone"
-                    placeholder="(21) 99000-0000"
+                    placeholder="(21) 99004-0402"
                     autocomplete="tel" />
                 </div>
 
@@ -1916,8 +1916,8 @@
                   <polyline points="20 6 9 17 4 12"/>
                 </svg>
               </div>
-              <h3>Solicitação enviada!</h3>
-              <p>Entraremos em contato em até 2 horas úteis para confirmar seu agendamento. Até breve!</p>
+              <h3>Abrindo o WhatsApp!</h3>
+              <p>Uma janela do WhatsApp foi aberta com sua mensagem pré-preenchida. Basta enviar e nossa equipe retornará em até 2 horas úteis. Até breve! 💚</p>
             </div>
 
           </div>
@@ -1971,7 +1971,7 @@
               </svg>
             </a>
 
-            <a href="https://wa.me/5521990000000" target="_blank" rel="noopener noreferrer" class="rede-social" aria-label="WhatsApp">
+            <a href="https://wa.me/5521990040402" target="_blank" rel="noopener noreferrer" class="rede-social" aria-label="WhatsApp">
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
               </svg>
@@ -2034,8 +2034,8 @@
               </a>
             </li>
             <li>
-              <a href="https://wa.me/5521990000000" target="_blank" rel="noopener noreferrer">
-                WhatsApp: (21) 99000-0000
+              <a href="https://wa.me/5521990040402" target="_blank" rel="noopener noreferrer">
+                WhatsApp: (21) 99004-0402
               </a>
             </li>
             <li>
@@ -2054,7 +2054,7 @@
 
       <!-- Rodapé inferior -->
       <div class="footer-rodape">
-        <p>&copy; 2025 FisioVita Clínica de Fisioterapia. Todos os direitos reservados.</p>
+        <p>&copy; 2025 Clínica de Fisioterapia Felipe Viana. Todos os direitos reservados.</p>
         <nav class="footer-legal" aria-label="Links legais">
           <a href="#">Política de Privacidade</a>
           <a href="#">Termos de Uso</a>
@@ -2136,10 +2136,22 @@
       if (e.key === 'Escape') toggleMenu(false);
     });
 
-    /* ── Formulário: submit simulado ── */
+    /* ── Formulário: envio via WhatsApp ── */
+    const WHATSAPP_NUMERO = '5521990040402'; /* ← altere para o número real da clínica (DDI+DDD+número, sem espaços ou símbolos) */
     const formContato = document.getElementById('formulario-contato');
     const formWrapper = document.getElementById('formulario-wrapper');
     const formSucesso = document.getElementById('form-sucesso');
+
+    /* Mapa legível para o campo "serviço" */
+    const servicoLabels = {
+      ortopedica:   'Fisioterapia Ortopédica',
+      neurologica:  'Fisioterapia Neurológica',
+      rpg:          'RPG & Reeducação Postural',
+      pilates:      'Pilates Clínico',
+      respiratoria: 'Fisioterapia Respiratória',
+      drenagem:     'Drenagem & Estética',
+      outros:       'Outros / Não sei ainda',
+    };
 
     formContato.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -2150,16 +2162,37 @@
         return;
       }
 
-      /* Simular envio (substituir por fetch/API real) */
+      /* Coleta dos campos */
+      const nome      = formContato.nome.value.trim();
+      const sobre     = formContato.sobrenome.value.trim();
+      const email     = formContato.email.value.trim();
+      const telefone  = formContato.telefone.value.trim() || 'Não informado';
+      const servicoV  = formContato.servico.value;
+      const servico   = servicoLabels[servicoV] || servicoV;
+      const mensagem  = formContato.mensagem.value.trim() || 'Não informada';
+
+      /* Monta a mensagem formatada */
+      const texto =
+        `Olá, Felipe Viana! 👋\n\n` +
+        `Gostaria de solicitar um agendamento de avaliação.\n\n` +
+        `*Nome:* ${nome} ${sobre}\n` +
+        `*E-mail:* ${email}\n` +
+        `*Telefone:* ${telefone}\n` +
+        `*Serviço de interesse:* ${servico}\n` +
+        `*Mensagem:* ${mensagem}\n\n` +
+        `Aguardo o retorno. Obrigado(a)!`;
+
+      /* Abre o WhatsApp numa nova aba */
+      const url = `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank', 'noopener,noreferrer');
+
+      /* Exibe confirmação na página */
       const btnSubmit = formContato.querySelector('[type="submit"]');
-      btnSubmit.textContent = 'Enviando…';
       btnSubmit.disabled = true;
 
-      setTimeout(() => {
-        formWrapper.style.display = 'none';
-        formSucesso.style.display = 'block';
-        formSucesso.focus();
-      }, 1200);
+      formWrapper.style.display = 'none';
+      formSucesso.style.display = 'block';
+      formSucesso.focus();
     });
 
     /* ── Smooth scroll em links âncoras ── */
