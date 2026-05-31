@@ -1,0 +1,2179 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Clínica de Fisioterapia especializada em reabilitação, prevenção e bem-estar. Atendimento personalizado e humanizado." />
+  <meta name="theme-color" content="#1a3a2a" />
+  <title>FisioVita — Clínica de Fisioterapia</title>
+
+  <!-- ── Fontes ── -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ════════════════════════════════════════════
+       RESET & BASE
+    ════════════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --verde-escuro:    #1a3a2a;
+      --verde-medio:     #2d6049;
+      --verde-claro:     #4a9070;
+      --verde-suave:     #ddeee6;
+      --creme:           #f7f3ed;
+      --creme-escuro:    #ede7dd;
+      --areia:           #c8b89a;
+      --terracota:       #b85c3a;
+      --terracota-claro: #f2e4dc;
+      --texto-escuro:    #1c1c1c;
+      --texto-medio:     #4a4a4a;
+      --texto-suave:     #7a7a7a;
+      --branco:          #ffffff;
+      --fonte-display:   'Cormorant Garant', Georgia, serif;
+      --fonte-corpo:     'Outfit', sans-serif;
+      --raio:            12px;
+      --raio-grande:     24px;
+      --sombra-suave:    0 4px 24px rgba(26, 58, 42, 0.08);
+      --sombra-media:    0 8px 40px rgba(26, 58, 42, 0.14);
+      --transicao:       0.3s ease;
+    }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      font-family: var(--fonte-corpo);
+      color: var(--texto-escuro);
+      background-color: var(--creme);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── Tipografia ── */
+    h1, h2, h3, h4 { font-family: var(--fonte-display); line-height: 1.2; font-weight: 600; }
+    h1 { font-size: clamp(2.4rem, 5vw, 4rem); }
+    h2 { font-size: clamp(2rem, 4vw, 3rem); }
+    h3 { font-size: clamp(1.3rem, 2.5vw, 1.7rem); }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    ul { list-style: none; }
+    button { cursor: pointer; border: none; background: none; font-family: var(--fonte-corpo); }
+
+    .container {
+      width: min(1160px, 92%);
+      margin-inline: auto;
+    }
+
+    /* ── Utilitários ── */
+    .label-secao {
+      display: inline-block;
+      font-family: var(--fonte-corpo);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--verde-claro);
+      background: var(--verde-suave);
+      padding: 6px 16px;
+      border-radius: 999px;
+      margin-bottom: 1rem;
+    }
+
+    .btn-primario {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--verde-escuro);
+      color: var(--branco);
+      padding: 15px 34px;
+      border-radius: 999px;
+      font-family: var(--fonte-corpo);
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      transition: background var(--transicao), transform var(--transicao), box-shadow var(--transicao);
+    }
+    .btn-primario:hover {
+      background: var(--verde-medio);
+      transform: translateY(-2px);
+      box-shadow: var(--sombra-media);
+    }
+    .btn-primario:focus-visible { outline: 3px solid var(--verde-claro); outline-offset: 3px; }
+
+    .btn-secundario {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--verde-escuro);
+      padding: 14px 32px;
+      border: 1.5px solid var(--verde-escuro);
+      border-radius: 999px;
+      font-family: var(--fonte-corpo);
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: background var(--transicao), color var(--transicao), transform var(--transicao);
+    }
+    .btn-secundario:hover { background: var(--verde-escuro); color: var(--branco); transform: translateY(-2px); }
+    .btn-secundario:focus-visible { outline: 3px solid var(--verde-claro); outline-offset: 3px; }
+
+    /* ── Animações de entrada ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(32px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    @keyframes slideRight {
+      from { opacity: 0; transform: translateX(-24px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visivel { opacity: 1; transform: translateY(0); }
+
+    /* ════════════════════════════════════════════
+       HEADER / NAVEGAÇÃO
+    ════════════════════════════════════════════ */
+    .site-header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 20px 0;
+      transition: background var(--transicao), box-shadow var(--transicao), padding var(--transicao);
+    }
+    .site-header.scrolled {
+      background: rgba(247, 243, 237, 0.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 2px 20px rgba(26,58,42,0.08);
+      padding: 12px 0;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    /* Logo */
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .logo-icone {
+      width: 44px; height: 44px;
+      background: var(--verde-escuro);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .logo-icone svg { width: 24px; height: 24px; fill: var(--branco); }
+    .logo-texto { font-family: var(--fonte-display); }
+    .logo-titulo { display: block; font-size: 1.35rem; font-weight: 700; color: var(--verde-escuro); line-height: 1; }
+    .logo-subtitulo { display: block; font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--verde-claro); font-family: var(--fonte-corpo); }
+
+    /* Menu desktop */
+    .nav-desktop { display: flex; align-items: center; gap: 8px; }
+    .nav-desktop a {
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: var(--texto-medio);
+      padding: 8px 14px;
+      border-radius: 8px;
+      transition: color var(--transicao), background var(--transicao);
+    }
+    .nav-desktop a:hover { color: var(--verde-escuro); background: var(--verde-suave); }
+    .nav-desktop a:focus-visible { outline: 2px solid var(--verde-claro); outline-offset: 2px; }
+
+    .header-cta { display: flex; align-items: center; gap: 12px; }
+    .header-telefone {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--verde-escuro);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .header-telefone svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+    /* Botão hambúrguer */
+    .btn-menu-mobile {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 44px; height: 44px;
+      padding: 10px;
+      border-radius: var(--raio);
+      transition: background var(--transicao);
+      aria-label: "Abrir menu";
+    }
+    .btn-menu-mobile:hover { background: var(--verde-suave); }
+    .btn-menu-mobile span {
+      display: block;
+      height: 2px;
+      background: var(--verde-escuro);
+      border-radius: 2px;
+      transition: transform var(--transicao), opacity var(--transicao);
+      transform-origin: center;
+    }
+    .btn-menu-mobile[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .btn-menu-mobile[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .btn-menu-mobile[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Menu mobile drawer */
+    .nav-mobile {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: var(--creme);
+      z-index: 999;
+      flex-direction: column;
+      padding: 100px 5% 40px;
+      gap: 4px;
+      overflow-y: auto;
+    }
+    .nav-mobile.aberto { display: flex; animation: fadeIn 0.25s ease; }
+    .nav-mobile a {
+      font-family: var(--fonte-display);
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: var(--texto-escuro);
+      padding: 12px 0;
+      border-bottom: 1px solid var(--creme-escuro);
+      transition: color var(--transicao), padding-left var(--transicao);
+    }
+    .nav-mobile a:hover { color: var(--verde-escuro); padding-left: 12px; }
+    .nav-mobile .btn-primario { margin-top: 24px; text-align: center; justify-content: center; }
+
+    /* ════════════════════════════════════════════
+       HERO SECTION
+    ════════════════════════════════════════════ */
+    .hero {
+      position: relative;
+      min-height: 100dvh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background-color: var(--verde-escuro);
+      padding: 120px 0 80px;
+    }
+
+    /* Textura de fundo */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%234a9070' fill-opacity='0.07'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+
+    /* Blob decorativo */
+    .hero-blob {
+      position: absolute;
+      right: -10%;
+      top: 50%;
+      transform: translateY(-50%);
+      width: min(580px, 55vw);
+      height: min(580px, 55vw);
+      border-radius: 60% 40% 70% 30% / 40% 60% 30% 70%;
+      background: linear-gradient(135deg, rgba(74, 144, 112, 0.25), rgba(200, 184, 154, 0.15));
+      pointer-events: none;
+      animation: morphBlob 12s ease-in-out infinite;
+    }
+    @keyframes morphBlob {
+      0%, 100% { border-radius: 60% 40% 70% 30% / 40% 60% 30% 70%; }
+      33%       { border-radius: 40% 60% 30% 70% / 60% 40% 70% 30%; }
+      66%       { border-radius: 70% 30% 50% 50% / 30% 70% 50% 50%; }
+    }
+
+    /* Imagem hero */
+    .hero-imagem-container {
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 48%;
+      overflow: hidden;
+      opacity: 0.2;
+    }
+    .hero-imagem-container::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, var(--verde-escuro) 0%, transparent 60%);
+    }
+
+    .hero-conteudo {
+      position: relative;
+      z-index: 1;
+      max-width: 620px;
+      animation: fadeUp 0.9s ease both;
+    }
+
+    .hero-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--areia);
+      background: rgba(200, 184, 154, 0.15);
+      border: 1px solid rgba(200, 184, 154, 0.3);
+      padding: 7px 16px;
+      border-radius: 999px;
+      margin-bottom: 1.5rem;
+      animation: slideRight 0.8s ease 0.2s both;
+    }
+    .hero-label::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--areia); }
+
+    .hero h1 {
+      color: var(--branco);
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.9s ease 0.3s both;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--areia);
+    }
+
+    .hero-descricao {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.75);
+      max-width: 480px;
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+      animation: fadeUp 0.9s ease 0.45s both;
+    }
+
+    .hero-acoes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 3rem;
+      animation: fadeUp 0.9s ease 0.6s both;
+    }
+
+    .hero .btn-primario { background: var(--areia); color: var(--verde-escuro); font-weight: 600; }
+    .hero .btn-primario:hover { background: #d4c5a8; }
+    .hero .btn-secundario { border-color: rgba(255,255,255,0.4); color: var(--branco); }
+    .hero .btn-secundario:hover { background: rgba(255,255,255,0.1); }
+
+    /* Estatísticas */
+    .hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px;
+      padding-top: 2.5rem;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      animation: fadeUp 0.9s ease 0.75s both;
+    }
+    .hero-stat-numero {
+      display: block;
+      font-family: var(--fonte-display);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--branco);
+      line-height: 1;
+    }
+    .hero-stat-texto { font-size: 0.8rem; color: rgba(255,255,255,0.55); letter-spacing: 0.06em; }
+
+    /* Wave divisor */
+    .wave-divisor {
+      position: relative;
+      overflow: hidden;
+      line-height: 0;
+    }
+    .wave-divisor svg { display: block; width: 100%; }
+
+    /* ════════════════════════════════════════════
+       SEÇÃO SOBRE — 3 COLUNAS
+    ════════════════════════════════════════════ */
+    .sobre {
+      padding: 100px 0;
+      background: var(--creme);
+    }
+
+    .sobre-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: end;
+      margin-bottom: 72px;
+    }
+
+    .sobre-intro-texto h2 { margin-bottom: 1rem; color: var(--verde-escuro); }
+    .sobre-intro-texto p { color: var(--texto-medio); font-size: 1.05rem; line-height: 1.8; }
+
+    .sobre-intro-destaque {
+      background: var(--verde-escuro);
+      border-radius: var(--raio-grande);
+      padding: 36px 32px;
+      color: var(--branco);
+    }
+    .sobre-intro-destaque blockquote {
+      font-family: var(--fonte-display);
+      font-size: 1.35rem;
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.55;
+      margin-bottom: 20px;
+    }
+    .sobre-intro-destaque cite {
+      font-size: 0.85rem;
+      font-style: normal;
+      color: var(--areia);
+      letter-spacing: 0.04em;
+    }
+
+    /* 3 colunas de pilares */
+    .sobre-pilares {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .pilar-card {
+      background: var(--branco);
+      border-radius: var(--raio-grande);
+      padding: 40px 32px;
+      border: 1px solid var(--creme-escuro);
+      transition: transform var(--transicao), box-shadow var(--transicao), border-color var(--transicao);
+    }
+    .pilar-card:hover { transform: translateY(-6px); box-shadow: var(--sombra-media); border-color: var(--verde-suave); }
+
+    .pilar-icone {
+      width: 56px; height: 56px;
+      border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+    .pilar-icone svg { width: 28px; height: 28px; }
+    .pilar-icone.verde  { background: var(--verde-suave); }
+    .pilar-icone.verde svg { stroke: var(--verde-escuro); }
+    .pilar-icone.terracota { background: var(--terracota-claro); }
+    .pilar-icone.terracota svg { stroke: var(--terracota); }
+    .pilar-icone.areia { background: #f5ede1; }
+    .pilar-icone.areia svg { stroke: #8a6840; }
+
+    .pilar-card h3 { color: var(--verde-escuro); margin-bottom: 0.75rem; font-size: 1.2rem; }
+    .pilar-card p { color: var(--texto-suave); font-size: 0.95rem; line-height: 1.8; }
+
+    /* ════════════════════════════════════════════
+       SEÇÃO SERVIÇOS
+    ════════════════════════════════════════════ */
+    .servicos {
+      padding: 100px 0;
+      background: var(--verde-escuro);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .servicos::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%234a9070' fill-opacity='0.06'%3E%3Ccircle cx='40' cy='40' r='6'/%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+
+    .servicos-cabecalho {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 32px;
+      margin-bottom: 56px;
+    }
+    .servicos-cabecalho .label-secao { background: rgba(74,144,112,0.2); color: #8ed4b5; }
+    .servicos-cabecalho h2 { color: var(--branco); }
+    .servicos-cabecalho p { color: rgba(255,255,255,0.6); max-width: 320px; text-align: right; }
+
+    .servicos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .servico-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--raio-grande);
+      padding: 36px 28px;
+      transition: background var(--transicao), transform var(--transicao), border-color var(--transicao);
+      cursor: default;
+    }
+    .servico-card:hover {
+      background: rgba(255,255,255,0.1);
+      transform: translateY(-5px);
+      border-color: rgba(255,255,255,0.22);
+    }
+
+    .servico-numero {
+      font-family: var(--fonte-display);
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.1);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+    .servico-card h3 {
+      font-size: 1.15rem;
+      color: var(--branco);
+      margin-bottom: 12px;
+    }
+    .servico-card p { font-size: 0.9rem; color: rgba(255,255,255,0.55); line-height: 1.8; margin-bottom: 20px; }
+
+    .servico-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .servico-tag {
+      font-size: 0.72rem;
+      padding: 4px 12px;
+      border-radius: 999px;
+      background: rgba(74,144,112,0.25);
+      color: #8ed4b5;
+      border: 1px solid rgba(74,144,112,0.3);
+    }
+
+    /* ════════════════════════════════════════════
+       SEÇÃO QUEM SOMOS
+    ════════════════════════════════════════════ */
+    .quem-somos {
+      padding: 100px 0;
+      background: var(--creme);
+    }
+
+    .quem-somos-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .quem-somos-visual {
+      position: relative;
+    }
+    .quem-somos-foto-principal {
+      background: var(--verde-medio);
+      border-radius: var(--raio-grande);
+      aspect-ratio: 4/5;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .quem-somos-foto-principal svg {
+      width: 120px;
+      height: 120px;
+      stroke: rgba(255,255,255,0.3);
+      fill: none;
+    }
+    /* Cartão flutuante de credencial */
+    .credencial-flutuante {
+      position: absolute;
+      bottom: 28px;
+      left: -28px;
+      background: var(--branco);
+      border-radius: var(--raio);
+      padding: 18px 22px;
+      box-shadow: var(--sombra-media);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      max-width: 230px;
+      z-index: 1;
+    }
+    .credencial-icone {
+      width: 44px; height: 44px; flex-shrink: 0;
+      background: var(--verde-suave);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .credencial-icone svg { width: 22px; height: 22px; stroke: var(--verde-escuro); }
+    .credencial-nome { font-weight: 600; font-size: 0.85rem; color: var(--texto-escuro); }
+    .credencial-cargo { font-size: 0.75rem; color: var(--texto-suave); }
+
+    /* Cartão de anos de experiência */
+    .anos-flutuante {
+      position: absolute;
+      top: 28px;
+      right: -28px;
+      background: var(--terracota);
+      border-radius: var(--raio);
+      padding: 20px;
+      text-align: center;
+      color: var(--branco);
+      box-shadow: var(--sombra-media);
+    }
+    .anos-flutuante .numero { font-family: var(--fonte-display); font-size: 2.5rem; font-weight: 700; line-height: 1; }
+    .anos-flutuante .texto { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.85; }
+
+    .quem-somos-texto h2 { color: var(--verde-escuro); margin-bottom: 1.25rem; }
+    .quem-somos-texto p { color: var(--texto-medio); line-height: 1.85; margin-bottom: 1.2rem; font-size: 1rem; }
+
+    .formacoes {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 1.8rem 0;
+    }
+    .formacao-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.88rem;
+      color: var(--texto-medio);
+    }
+    .formacao-item::before {
+      content: '';
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      background: var(--verde-suave);
+      display: flex; flex-shrink: 0;
+      margin-top: 2px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%232d6049' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    /* Equipe cards */
+    .equipe {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 72px;
+    }
+    .equipe-card {
+      background: var(--branco);
+      border-radius: var(--raio-grande);
+      overflow: hidden;
+      border: 1px solid var(--creme-escuro);
+      transition: transform var(--transicao), box-shadow var(--transicao);
+      text-align: center;
+    }
+    .equipe-card:hover { transform: translateY(-5px); box-shadow: var(--sombra-media); }
+    .equipe-foto {
+      height: 200px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--fonte-display);
+      font-size: 3rem;
+      font-weight: 600;
+      color: var(--branco);
+    }
+    .equipe-foto.v1 { background: var(--verde-medio); }
+    .equipe-foto.v2 { background: var(--verde-claro); }
+    .equipe-foto.v3 { background: var(--terracota); }
+    .equipe-info { padding: 20px; }
+    .equipe-info h3 { font-size: 1rem; color: var(--verde-escuro); margin-bottom: 4px; }
+    .equipe-info p { font-size: 0.8rem; color: var(--texto-suave); margin-bottom: 10px; }
+    .equipe-crefito { font-size: 0.72rem; background: var(--verde-suave); color: var(--verde-escuro); padding: 3px 12px; border-radius: 999px; font-weight: 600; }
+
+    /* ════════════════════════════════════════════
+       SEÇÃO DEPOIMENTOS
+    ════════════════════════════════════════════ */
+    .depoimentos {
+      padding: 100px 0;
+      background: var(--creme-escuro);
+      position: relative;
+    }
+
+    .depoimentos-cabecalho { text-align: center; margin-bottom: 60px; }
+    .depoimentos-cabecalho h2 { color: var(--verde-escuro); }
+
+    .depoimentos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .depoimento-card {
+      background: var(--branco);
+      border-radius: var(--raio-grande);
+      padding: 36px 30px;
+      position: relative;
+      box-shadow: var(--sombra-suave);
+      transition: transform var(--transicao), box-shadow var(--transicao);
+    }
+    .depoimento-card:hover { transform: translateY(-4px); box-shadow: var(--sombra-media); }
+
+    /* Aspas decorativas */
+    .depoimento-card::before {
+      content: '\201C';
+      position: absolute;
+      top: 16px; right: 28px;
+      font-family: var(--fonte-display);
+      font-size: 6rem;
+      line-height: 1;
+      color: var(--verde-suave);
+      font-weight: 700;
+    }
+
+    .estrelas {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 16px;
+    }
+    .estrela { color: #f5a623; font-size: 0.9rem; }
+
+    .depoimento-texto {
+      font-size: 0.95rem;
+      color: var(--texto-medio);
+      line-height: 1.8;
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+
+    .depoimento-autor { display: flex; align-items: center; gap: 14px; }
+    .autor-avatar {
+      width: 46px; height: 46px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--fonte-display);
+      font-weight: 700;
+      font-size: 1rem;
+      flex-shrink: 0;
+      color: var(--verde-escuro);
+      background: var(--verde-suave);
+    }
+    .autor-nome { font-weight: 600; font-size: 0.9rem; color: var(--texto-escuro); }
+    .autor-tratamento { font-size: 0.78rem; color: var(--texto-suave); }
+
+    /* ════════════════════════════════════════════
+       SEÇÃO ATENDIMENTO
+    ════════════════════════════════════════════ */
+    .atendimento {
+      padding: 100px 0;
+      background: var(--creme);
+    }
+
+    .atendimento-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .atendimento-info h2 { color: var(--verde-escuro); margin-bottom: 1.2rem; }
+    .atendimento-info > p { color: var(--texto-medio); line-height: 1.85; margin-bottom: 2rem; }
+
+    /* Blocos de informação */
+    .info-blocos { display: flex; flex-direction: column; gap: 16px; }
+    .info-bloco {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      background: var(--branco);
+      border-radius: var(--raio);
+      padding: 18px 20px;
+      border: 1px solid var(--creme-escuro);
+      transition: border-color var(--transicao), box-shadow var(--transicao);
+    }
+    .info-bloco:hover { border-color: var(--verde-suave); box-shadow: var(--sombra-suave); }
+    .info-bloco-icone {
+      width: 44px; height: 44px; flex-shrink: 0;
+      border-radius: 12px;
+      background: var(--verde-suave);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .info-bloco-icone svg { width: 20px; height: 20px; stroke: var(--verde-escuro); fill: none; }
+    .info-bloco-titulo { font-weight: 600; font-size: 0.88rem; color: var(--texto-escuro); margin-bottom: 4px; }
+    .info-bloco-detalhe { font-size: 0.85rem; color: var(--texto-suave); line-height: 1.6; }
+
+    /* Mapa placeholder */
+    .mapa-container {
+      border-radius: var(--raio-grande);
+      overflow: hidden;
+      border: 1px solid var(--creme-escuro);
+      box-shadow: var(--sombra-suave);
+    }
+    .mapa-placeholder {
+      background: var(--verde-suave);
+      height: 320px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+    .mapa-placeholder svg { width: 48px; height: 48px; stroke: var(--verde-escuro); fill: none; }
+    .mapa-placeholder p { font-size: 0.9rem; color: var(--verde-escuro); font-weight: 500; }
+
+    .mapa-endereco {
+      background: var(--branco);
+      padding: 20px 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .mapa-dado-titulo { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--texto-suave); margin-bottom: 4px; }
+    .mapa-dado-valor { font-size: 0.9rem; font-weight: 500; color: var(--texto-escuro); }
+
+    /* ════════════════════════════════════════════
+       SEÇÃO CONTATO (FORMULÁRIO)
+    ════════════════════════════════════════════ */
+    .contato {
+      padding: 100px 0;
+      background: var(--creme-escuro);
+    }
+
+    .contato-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .contato-info h2 { color: var(--verde-escuro); margin-bottom: 1rem; }
+    .contato-info > p { color: var(--texto-medio); line-height: 1.85; margin-bottom: 2.5rem; }
+
+    .contato-canais { display: flex; flex-direction: column; gap: 14px; }
+    .contato-canal {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: var(--texto-escuro);
+      background: var(--branco);
+      border-radius: var(--raio);
+      padding: 16px 18px;
+      border: 1px solid var(--creme-escuro);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: border-color var(--transicao), transform var(--transicao), box-shadow var(--transicao);
+    }
+    .contato-canal:hover { border-color: var(--verde-claro); transform: translateX(4px); box-shadow: var(--sombra-suave); }
+    .canal-icone {
+      width: 40px; height: 40px; flex-shrink: 0;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .canal-icone svg { width: 18px; height: 18px; }
+    .canal-icone.verde { background: var(--verde-suave); }
+    .canal-icone.verde svg { stroke: var(--verde-escuro); }
+    .canal-icone.wa { background: #dcf5e7; }
+    .canal-icone.wa svg { stroke: #1a7a3a; }
+    .canal-icone.insta { background: #fce4e4; }
+    .canal-icone.insta svg { stroke: #c2185b; }
+
+    /* Formulário */
+    .formulario-card {
+      background: var(--branco);
+      border-radius: var(--raio-grande);
+      padding: 44px 40px;
+      border: 1px solid var(--creme-escuro);
+      box-shadow: var(--sombra-suave);
+    }
+    .formulario-titulo { font-family: var(--fonte-display); font-size: 1.5rem; font-weight: 600; color: var(--verde-escuro); margin-bottom: 24px; }
+
+    .form-grupo { margin-bottom: 20px; }
+    .form-grupo label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--texto-escuro);
+      margin-bottom: 8px;
+      letter-spacing: 0.02em;
+    }
+    .form-grupo label .obrigatorio { color: var(--terracota); margin-left: 2px; }
+
+    .form-grupo input,
+    .form-grupo select,
+    .form-grupo textarea {
+      width: 100%;
+      padding: 13px 16px;
+      border: 1.5px solid var(--creme-escuro);
+      border-radius: var(--raio);
+      background: var(--creme);
+      font-family: var(--fonte-corpo);
+      font-size: 0.93rem;
+      color: var(--texto-escuro);
+      transition: border-color var(--transicao), box-shadow var(--transicao), background var(--transicao);
+      outline: none;
+      -webkit-appearance: none;
+    }
+    .form-grupo input:hover,
+    .form-grupo select:hover,
+    .form-grupo textarea:hover { border-color: var(--areia); }
+    .form-grupo input:focus,
+    .form-grupo select:focus,
+    .form-grupo textarea:focus {
+      border-color: var(--verde-medio);
+      background: var(--branco);
+      box-shadow: 0 0 0 4px rgba(45, 96, 73, 0.1);
+    }
+    .form-grupo textarea { resize: vertical; min-height: 120px; }
+
+    .form-linha { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+    .form-checkbox {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.85rem;
+      color: var(--texto-medio);
+      cursor: pointer;
+    }
+    .form-checkbox input[type="checkbox"] {
+      width: 18px; height: 18px;
+      border-radius: 5px;
+      flex-shrink: 0;
+      margin-top: 1px;
+      cursor: pointer;
+      accent-color: var(--verde-escuro);
+    }
+
+    .form-submit {
+      width: 100%;
+      margin-top: 24px;
+      padding: 16px;
+      font-size: 1rem;
+      font-weight: 600;
+      justify-content: center;
+    }
+
+    /* Mensagem de sucesso */
+    .form-sucesso {
+      display: none;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .form-sucesso .icone-sucesso {
+      width: 64px; height: 64px;
+      background: var(--verde-suave);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 16px;
+    }
+    .form-sucesso .icone-sucesso svg { width: 30px; height: 30px; stroke: var(--verde-escuro); }
+    .form-sucesso h3 { color: var(--verde-escuro); margin-bottom: 8px; }
+    .form-sucesso p { color: var(--texto-suave); font-size: 0.95rem; }
+
+    /* ════════════════════════════════════════════
+       FOOTER
+    ════════════════════════════════════════════ */
+    .site-footer {
+      background: var(--verde-escuro);
+      color: rgba(255,255,255,0.65);
+      padding: 72px 0 32px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr repeat(3, 1fr);
+      gap: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      margin-bottom: 32px;
+    }
+
+    .footer-logo .logo-titulo { color: var(--branco); }
+    .footer-logo .logo-subtitulo { color: var(--areia); }
+    .footer-descricao { font-size: 0.88rem; line-height: 1.8; margin: 16px 0 24px; }
+
+    /* Redes sociais */
+    .redes-sociais { display: flex; gap: 10px; }
+    .rede-social {
+      width: 38px; height: 38px;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.1);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      transition: background var(--transicao), color var(--transicao), transform var(--transicao);
+      aria-label: "Rede social";
+    }
+    .rede-social:hover { background: rgba(255,255,255,0.18); color: var(--branco); transform: translateY(-2px); }
+    .rede-social svg { width: 16px; height: 16px; stroke: currentColor; fill: none; }
+    .rede-social:focus-visible { outline: 2px solid var(--areia); outline-offset: 3px; }
+
+    .footer-coluna h4 {
+      font-family: var(--fonte-corpo);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--branco);
+      margin-bottom: 20px;
+    }
+    .footer-coluna ul { display: flex; flex-direction: column; gap: 10px; }
+    .footer-coluna ul li a {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      transition: color var(--transicao);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .footer-coluna ul li a:hover { color: var(--branco); }
+    .footer-coluna ul li a:focus-visible { outline: 2px solid var(--areia); outline-offset: 2px; border-radius: 4px; }
+
+    .footer-rodape {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-rodape p { font-size: 0.82rem; }
+    .footer-legal { display: flex; gap: 20px; }
+    .footer-legal a { font-size: 0.82rem; color: rgba(255,255,255,0.4); text-decoration: none; transition: color var(--transicao); }
+    .footer-legal a:hover { color: var(--branco); }
+
+    /* ════════════════════════════════════════════
+       RESPONSIVIDADE
+    ════════════════════════════════════════════ */
+    @media (max-width: 1024px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+      .sobre-intro { grid-template-columns: 1fr; gap: 32px; }
+      .sobre-intro-destaque { max-width: 500px; }
+      .quem-somos-inner { gap: 48px; }
+    }
+
+    @media (max-width: 900px) {
+      .nav-desktop, .header-telefone { display: none; }
+      .btn-menu-mobile { display: flex; }
+      .sobre-pilares { grid-template-columns: 1fr 1fr; }
+      .equipe { grid-template-columns: 1fr 1fr; }
+      .atendimento-inner,
+      .contato-inner { grid-template-columns: 1fr; }
+      .quem-somos-inner { grid-template-columns: 1fr; }
+      .anos-flutuante { right: 16px; }
+      .credencial-flutuante { left: 0; }
+      .servicos-cabecalho { flex-direction: column; align-items: flex-start; }
+      .servicos-cabecalho p { text-align: left; }
+    }
+
+    @media (max-width: 640px) {
+      .sobre-pilares { grid-template-columns: 1fr; }
+      .equipe { grid-template-columns: 1fr; max-width: 360px; margin-inline: auto; }
+      .form-linha { grid-template-columns: 1fr; }
+      .formulario-card { padding: 28px 20px; }
+      .hero h1 { font-size: 2.2rem; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .hero-stats { gap: 20px; }
+      .mapa-endereco { grid-template-columns: 1fr; }
+      .footer-rodape { flex-direction: column; text-align: center; }
+    }
+
+    /* ── Skip link para acessibilidade ── */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 0;
+      background: var(--verde-escuro);
+      color: var(--branco);
+      padding: 12px 24px;
+      font-weight: 600;
+      z-index: 9999;
+      border-radius: 0 0 var(--raio) 0;
+      transition: top 0.2s;
+    }
+    .skip-link:focus { top: 0; }
+
+    /* ── Barra de progresso de leitura ── */
+    .progresso-leitura {
+      position: fixed;
+      top: 0; left: 0;
+      height: 3px;
+      background: var(--areia);
+      z-index: 9999;
+      width: 0%;
+      transition: width 0.1s linear;
+    }
+
+    /* ── Botão voltar ao topo ── */
+    .btn-topo {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      width: 48px; height: 48px;
+      background: var(--verde-escuro);
+      color: var(--branco);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: var(--sombra-media);
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity var(--transicao), transform var(--transicao), background var(--transicao);
+      pointer-events: none;
+      z-index: 800;
+      aria-label: "Voltar ao topo";
+    }
+    .btn-topo.visivel { opacity: 1; transform: translateY(0); pointer-events: all; }
+    .btn-topo:hover { background: var(--verde-medio); }
+    .btn-topo svg { width: 20px; height: 20px; stroke: currentColor; }
+  </style>
+</head>
+
+<body>
+
+  <!-- ── Skip link para acessibilidade ── -->
+  <a class="skip-link" href="#conteudo-principal">Ir para conteúdo principal</a>
+
+  <!-- ── Barra de progresso ── -->
+  <div class="progresso-leitura" role="progressbar" aria-label="Progresso de leitura" aria-valuemin="0" aria-valuemax="100"></div>
+
+  <!-- ════════════════════════════════════════════
+       HEADER
+  ════════════════════════════════════════════ -->
+  <header class="site-header" role="banner">
+    <div class="container">
+      <div class="header-inner">
+
+        <!-- Logo -->
+        <a href="#inicio" class="logo" aria-label="FisioVita — Página inicial">
+          <div class="logo-icone" aria-hidden="true">
+            <!-- Ícone: cruz médica estilizada -->
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M9 3h6v6h6v6h-6v6H9v-6H3v-6h6z"/>
+            </svg>
+          </div>
+          <div class="logo-texto">
+            <span class="logo-titulo">FisioVita</span>
+            <span class="logo-subtitulo">Clínica de Fisioterapia</span>
+          </div>
+        </a>
+
+        <!-- Navegação desktop -->
+        <nav class="nav-desktop" role="navigation" aria-label="Menu principal">
+          <a href="#sobre">Sobre</a>
+          <a href="#servicos">Serviços</a>
+          <a href="#quem-somos">Equipe</a>
+          <a href="#depoimentos">Depoimentos</a>
+          <a href="#atendimento">Atendimento</a>
+          <a href="#contato">Contato</a>
+        </nav>
+
+        <!-- CTA e telefone -->
+        <div class="header-cta">
+          <span class="header-telefone" aria-label="Telefone de contato">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 9.91A16 16 0 0014.09 17.9l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+            </svg>
+            (21) 3000-0000
+          </span>
+          <a href="#contato" class="btn-primario">Agendar Consulta</a>
+        </div>
+
+        <!-- Botão mobile -->
+        <button
+          class="btn-menu-mobile"
+          id="btn-menu-mobile"
+          aria-expanded="false"
+          aria-controls="nav-mobile"
+          aria-label="Abrir menu de navegação">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Menu mobile drawer -->
+  <nav class="nav-mobile" id="nav-mobile" role="navigation" aria-label="Menu mobile" aria-hidden="true">
+    <a href="#sobre"        class="nav-mobile-link">Sobre</a>
+    <a href="#servicos"     class="nav-mobile-link">Serviços</a>
+    <a href="#quem-somos"   class="nav-mobile-link">Equipe</a>
+    <a href="#depoimentos"  class="nav-mobile-link">Depoimentos</a>
+    <a href="#atendimento"  class="nav-mobile-link">Atendimento</a>
+    <a href="#contato"      class="nav-mobile-link">Contato</a>
+    <a href="#contato" class="btn-primario">Agendar Consulta</a>
+  </nav>
+
+  <main id="conteudo-principal">
+
+    <!-- ════════════════════════════════════════════
+         HERO SECTION
+    ════════════════════════════════════════════ -->
+    <section class="hero" id="inicio" aria-labelledby="hero-titulo">
+
+      <div class="hero-blob" aria-hidden="true"></div>
+
+      <div class="container">
+        <div class="hero-conteudo">
+
+          <div class="hero-label" aria-label="Categoria: Saúde &amp; Reabilitação">
+            Saúde &amp; Reabilitação
+          </div>
+
+          <h1 id="hero-titulo">
+            Recupere seu <em>movimento.</em><br>
+            Viva sem dor.
+          </h1>
+
+          <p class="hero-descricao">
+            Fisioterapia especializada com abordagem humanizada. Tratamentos
+            personalizados para reabilitação, prevenção e qualidade de vida.
+          </p>
+
+          <div class="hero-acoes">
+            <a href="#contato" class="btn-primario">
+              Agendar Avaliação Gratuita
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#servicos" class="btn-secundario">Conhecer Serviços</a>
+          </div>
+
+          <!-- Estatísticas -->
+          <div class="hero-stats" role="list" aria-label="Números da clínica">
+            <div role="listitem">
+              <span class="hero-stat-numero">+2.800</span>
+              <span class="hero-stat-texto">Pacientes atendidos</span>
+            </div>
+            <div role="listitem">
+              <span class="hero-stat-numero">12+</span>
+              <span class="hero-stat-texto">Anos de experiência</span>
+            </div>
+            <div role="listitem">
+              <span class="hero-stat-numero">98%</span>
+              <span class="hero-stat-texto">Índice de satisfação</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Divisor de onda -->
+    <div class="wave-divisor" aria-hidden="true">
+      <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,40 C360,0 1080,80 1440,20 L1440,60 L0,60 Z" fill="#f7f3ed"/>
+      </svg>
+    </div>
+
+    <!-- ════════════════════════════════════════════
+         SEÇÃO SOBRE — 3 COLUNAS
+    ════════════════════════════════════════════ -->
+    <section class="sobre" id="sobre" aria-labelledby="sobre-titulo">
+      <div class="container">
+
+        <!-- Introdução em duas colunas -->
+        <div class="sobre-intro reveal">
+          <div class="sobre-intro-texto">
+            <span class="label-secao">Nossa filosofia</span>
+            <h2 id="sobre-titulo">Cuidado integral que transforma vidas</h2>
+            <p>
+              Na FisioVita, acreditamos que cada paciente é único. Nossa abordagem
+              integra ciência, tecnologia e escuta ativa para oferecer tratamentos
+              que vão além do alívio da dor — buscamos a transformação e o
+              equilíbrio duradouro.
+            </p>
+          </div>
+          <div class="sobre-intro-destaque">
+            <blockquote>
+              "A fisioterapia não trata apenas o corpo — ela restaura a confiança
+              de cada pessoa em sua própria capacidade de se mover."
+            </blockquote>
+            <cite>— Dr. Marcos Oliveira, Fundador da FisioVita</cite>
+          </div>
+        </div>
+
+        <!-- 3 pilares / colunas -->
+        <div class="sobre-pilares" role="list" aria-label="Nossos pilares">
+
+          <!-- Pilar 1: Diagnóstico Preciso -->
+          <article class="pilar-card reveal" role="listitem">
+            <div class="pilar-icone verde" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+                <path d="M11 8v3l2 2"/>
+              </svg>
+            </div>
+            <h3>Diagnóstico Preciso</h3>
+            <p>
+              Avaliação funcional completa com tecnologia de ponta para identificar
+              a raiz do problema, garantindo um tratamento direcionado e eficiente.
+            </p>
+          </article>
+
+          <!-- Pilar 2: Tratamento Personalizado -->
+          <article class="pilar-card reveal" role="listitem" style="transition-delay: 0.12s;">
+            <div class="pilar-icone terracota" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+              </svg>
+            </div>
+            <h3>Tratamento Personalizado</h3>
+            <p>
+              Cada protocolo é criado exclusivamente para você. Respeitamos seu
+              ritmo, seu histórico e seus objetivos de vida para maximizar os resultados.
+            </p>
+          </article>
+
+          <!-- Pilar 3: Acompanhamento Contínuo -->
+          <article class="pilar-card reveal" role="listitem" style="transition-delay: 0.24s;">
+            <div class="pilar-icone areia" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+              </svg>
+            </div>
+            <h3>Acompanhamento Contínuo</h3>
+            <p>
+              Monitoramos sua evolução em cada etapa. Ajustamos o plano sempre que
+              necessário e celebramos cada conquista junto com você.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         SEÇÃO SERVIÇOS
+    ════════════════════════════════════════════ -->
+    <section class="servicos" id="servicos" aria-labelledby="servicos-titulo">
+      <div class="container">
+
+        <div class="servicos-cabecalho reveal">
+          <div>
+            <span class="label-secao">O que oferecemos</span>
+            <h2 id="servicos-titulo">Nossos serviços</h2>
+          </div>
+          <p>Especialidades para cada fase da sua reabilitação e bem-estar.</p>
+        </div>
+
+        <div class="servicos-grid" role="list" aria-label="Lista de serviços">
+
+          <!-- Serviço 1 -->
+          <article class="servico-card reveal" role="listitem">
+            <div class="servico-numero" aria-hidden="true">01</div>
+            <h3>Fisioterapia Ortopédica</h3>
+            <p>Tratamento de lesões musculoesqueléticas, pós-cirúrgico e dores crônicas com técnicas manuais e exercícios terapêuticos.</p>
+            <div class="servico-tags" aria-label="Áreas de atuação">
+              <span class="servico-tag">Coluna</span>
+              <span class="servico-tag">Joelho</span>
+              <span class="servico-tag">Ombro</span>
+            </div>
+          </article>
+
+          <!-- Serviço 2 -->
+          <article class="servico-card reveal" role="listitem" style="transition-delay: 0.1s;">
+            <div class="servico-numero" aria-hidden="true">02</div>
+            <h3>Fisioterapia Neurológica</h3>
+            <p>Reabilitação para AVC, Parkinson, esclerose múltipla e outras condições neurológicas com abordagem neurodinâmica.</p>
+            <div class="servico-tags" aria-label="Condições tratadas">
+              <span class="servico-tag">AVC</span>
+              <span class="servico-tag">Parkinson</span>
+              <span class="servico-tag">Equilíbrio</span>
+            </div>
+          </article>
+
+          <!-- Serviço 3 -->
+          <article class="servico-card reveal" role="listitem" style="transition-delay: 0.2s;">
+            <div class="servico-numero" aria-hidden="true">03</div>
+            <h3>RPG &amp; Reeducação Postural</h3>
+            <p>Correção postural global com cadeias musculares integradas para eliminar tensões e alinhar o corpo de forma harmônica.</p>
+            <div class="servico-tags" aria-label="Benefícios">
+              <span class="servico-tag">Postura</span>
+              <span class="servico-tag">Escoliose</span>
+              <span class="servico-tag">Lordose</span>
+            </div>
+          </article>
+
+          <!-- Serviço 4 -->
+          <article class="servico-card reveal" role="listitem" style="transition-delay: 0.1s;">
+            <div class="servico-numero" aria-hidden="true">04</div>
+            <h3>Pilates Clínico</h3>
+            <p>Método Pilates supervisionado por fisioterapeutas para fortalecimento do core, flexibilidade e prevenção de lesões.</p>
+            <div class="servico-tags" aria-label="Modalidades">
+              <span class="servico-tag">Solo</span>
+              <span class="servico-tag">Aparelhos</span>
+              <span class="servico-tag">Reformer</span>
+            </div>
+          </article>
+
+          <!-- Serviço 5 -->
+          <article class="servico-card reveal" role="listitem" style="transition-delay: 0.2s;">
+            <div class="servico-numero" aria-hidden="true">05</div>
+            <h3>Fisioterapia Respiratória</h3>
+            <p>Tratamento e prevenção de doenças pulmonares, reabilitação pós-Covid-19 e melhora da função respiratória.</p>
+            <div class="servico-tags" aria-label="Indicações">
+              <span class="servico-tag">DPOC</span>
+              <span class="servico-tag">Asma</span>
+              <span class="servico-tag">Pós-Covid</span>
+            </div>
+          </article>
+
+          <!-- Serviço 6 -->
+          <article class="servico-card reveal" role="listitem" style="transition-delay: 0.3s;">
+            <div class="servico-numero" aria-hidden="true">06</div>
+            <h3>Drenagem &amp; Estética</h3>
+            <p>Drenagem linfática manual, tratamento de fibromialgia, ondas de choque e recursos eletroterapêuticos especializados.</p>
+            <div class="servico-tags" aria-label="Técnicas">
+              <span class="servico-tag">Drenagem</span>
+              <span class="servico-tag">EPTE</span>
+              <span class="servico-tag">Ventosa</span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Divisor onda -->
+    <div class="wave-divisor" aria-hidden="true" style="background: var(--verde-escuro);">
+      <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,20 C480,80 960,0 1440,40 L1440,60 L0,60 Z" fill="#f7f3ed"/>
+      </svg>
+    </div>
+
+    <!-- ════════════════════════════════════════════
+         SEÇÃO QUEM SOMOS
+    ════════════════════════════════════════════ -->
+    <section class="quem-somos" id="quem-somos" aria-labelledby="quem-somos-titulo">
+      <div class="container">
+
+        <div class="quem-somos-inner">
+
+          <!-- Visual com foto e cartões flutuantes -->
+          <div class="quem-somos-visual reveal">
+            <div class="quem-somos-foto-principal" aria-label="Foto da equipe FisioVita">
+              <!-- Substituir por <img src="equipe.jpg" alt="Equipe FisioVita" style="width:100%;height:100%;object-fit:cover"> -->
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            </div>
+
+            <!-- Cartão flutuante: credencial -->
+            <div class="credencial-flutuante" aria-label="Fisioterapeuta principal">
+              <div class="credencial-icone" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 1 0-16 0"/>
+                </svg>
+              </div>
+              <div>
+                <div class="credencial-nome">Dr. Marcos Oliveira</div>
+                <div class="credencial-cargo">CREFITO-2 · 78.432-F</div>
+              </div>
+            </div>
+
+            <!-- Cartão flutuante: experiência -->
+            <div class="anos-flutuante" aria-label="12 anos de experiência">
+              <span class="numero">12+</span>
+              <span class="texto">Anos<br>Experiência</span>
+            </div>
+          </div>
+
+          <!-- Texto -->
+          <div class="quem-somos-texto reveal" style="transition-delay: 0.15s;">
+            <span class="label-secao">Nossa equipe</span>
+            <h2 id="quem-somos-titulo">Profissionais apaixonados pelo cuidado</h2>
+            <p>
+              A FisioVita foi fundada em 2012 com uma missão clara: oferecer
+              fisioterapia de excelência, acessível e humanizada. Ao longo dos
+              anos, construímos uma equipe multidisciplinar comprometida com a
+              transformação da saúde de cada paciente.
+            </p>
+            <p>
+              Nossos fisioterapeutas têm formação nas melhores instituições do
+              Brasil e participam regularmente de congressos e cursos de
+              atualização para trazer sempre o que há de mais moderno.
+            </p>
+
+            <!-- Formações e especializações -->
+            <div class="formacoes" role="list" aria-label="Formações e especializações">
+              <div class="formacao-item" role="listitem">Fisioterapia Ortopédica e Traumatológica</div>
+              <div class="formacao-item" role="listitem">Fisioterapia Neurológica</div>
+              <div class="formacao-item" role="listitem">Pilates Clínico Certificado</div>
+              <div class="formacao-item" role="listitem">Terapia Manual Avançada</div>
+              <div class="formacao-item" role="listitem">Reabilitação Esportiva</div>
+              <div class="formacao-item" role="listitem">Fisioterapia Respiratória</div>
+            </div>
+
+            <a href="#contato" class="btn-primario">Conheça Nossa Equipe</a>
+          </div>
+        </div>
+
+        <!-- Cards da equipe -->
+        <div class="equipe reveal" role="list" aria-label="Membros da equipe">
+
+          <article class="equipe-card" role="listitem">
+            <div class="equipe-foto v1" aria-hidden="true">MO</div>
+            <div class="equipe-info">
+              <h3>Dr. Marcos Oliveira</h3>
+              <p>Fisioterapia Ortopédica &amp; Terapia Manual</p>
+              <span class="equipe-crefito">CREFITO-2 · 78.432-F</span>
+            </div>
+          </article>
+
+          <article class="equipe-card" role="listitem">
+            <div class="equipe-foto v2" aria-hidden="true">AS</div>
+            <div class="equipe-info">
+              <h3>Dra. Ana Santos</h3>
+              <p>Fisioterapia Neurológica &amp; RPG</p>
+              <span class="equipe-crefito">CREFITO-2 · 92.110-F</span>
+            </div>
+          </article>
+
+          <article class="equipe-card" role="listitem">
+            <div class="equipe-foto v3" aria-hidden="true">RC</div>
+            <div class="equipe-info">
+              <h3>Dr. Rafael Costa</h3>
+              <p>Pilates Clínico &amp; Esportiva</p>
+              <span class="equipe-crefito">CREFITO-2 · 85.674-F</span>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         SEÇÃO DEPOIMENTOS
+    ════════════════════════════════════════════ -->
+    <section class="depoimentos" id="depoimentos" aria-labelledby="depoimentos-titulo">
+      <div class="container">
+
+        <div class="depoimentos-cabecalho reveal">
+          <span class="label-secao">Depoimentos</span>
+          <h2 id="depoimentos-titulo">O que nossos pacientes dizem</h2>
+        </div>
+
+        <div class="depoimentos-grid" role="list" aria-label="Depoimentos de pacientes">
+
+          <!-- Depoimento 1 -->
+          <article class="depoimento-card reveal" role="listitem">
+            <div class="estrelas" aria-label="Avaliação: 5 de 5 estrelas">
+              <span class="estrela" aria-hidden="true">★</span><span class="estrela" aria-hidden="true">★</span>
+              <span class="estrela" aria-hidden="true">★</span><span class="estrela" aria-hidden="true">★</span>
+              <span class="estrela" aria-hidden="true">★</span>
+            </div>
+            <p class="depoimento-texto">
+              Após uma cirurgia no joelho, achei que nunca voltaria a jogar
+              futebol. Com o Dr. Marcos e a equipe da FisioVita, voltei a jogar
+              em 4 meses. O tratamento foi perfeito, humano e muito profissional.
+            </p>
+            <div class="depoimento-autor">
+              <div class="autor-avatar" aria-hidden="true">FS</div>
+              <div>
+                <div class="autor-nome">Felipe Souza</div>
+                <div class="autor-tratamento">Reabilitação ortopédica · Joelho</div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Depoimento 2 -->
+          <article class="depoimento-card reveal" role="listitem" style="transition-delay: 0.12s;">
+            <div class="estrelas" aria-label="Avaliação: 5 de 5 estrelas">
+              <span class="estrela" aria-hidden="true">★</span><span class="estrela" aria-hidden="true">★</span>
+              <span class="estrela" aria-hidden="true">★</span><span class="estrela" aria-hidden="true">★</span>
+              <span class="estrela" aria-hidden="true">★</span>
+            </div>
+            <p class="depoimento-texto">
+              Sofri um AVC e perdi movimentos no lado direito. A Dra. Ana foi
+              incansável na minha recuperação. Hoje consigo caminhar sozinha e
+              retomei minha independência. Gratidão eterna a essa equipe.
+            </p>
+            <div class="depoimento-autor">
+              <div class="autor-avatar" aria-hidden="true">LM</div>
+              <div>
+                <div class="autor-nome">Lúcia Mendes</div>
+                <div class="autor-tratamento">Fisioterapia neurológica · AVC</div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Depoimento 3 -->
+          <article class="depoimento-card reveal" role="listitem" style="transition-delay: 0.24s;">
+            <div class="estrelas" aria-label="Avaliação: 5 de 5 estrelas">
+              <span class="estrela" aria-hidden="true">★</span><span class="estrela" aria-hidden="true">★</span>
+              <span class="estrela" aria-hidden="true">★</span><span class="estrela" aria-hidden="true">★</span>
+              <span class="estrela" aria-hidden="true">★</span>
+            </div>
+            <p class="depoimento-texto">
+              Dor crônica nas costas há 8 anos, sem solução. Em 3 meses de RPG
+              e Pilates Clínico na FisioVita, minha vida mudou completamente.
+              Estrutura impecável, equipe acolhedora e resultados reais.
+            </p>
+            <div class="depoimento-autor">
+              <div class="autor-avatar" aria-hidden="true">CR</div>
+              <div>
+                <div class="autor-nome">Carla Rodrigues</div>
+                <div class="autor-tratamento">RPG &amp; Pilates clínico · Coluna</div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         SEÇÃO ATENDIMENTO
+    ════════════════════════════════════════════ -->
+    <section class="atendimento" id="atendimento" aria-labelledby="atendimento-titulo">
+      <div class="container">
+
+        <div class="atendimento-inner">
+
+          <!-- Informações -->
+          <div class="atendimento-info reveal">
+            <span class="label-secao">Localização &amp; horários</span>
+            <h2 id="atendimento-titulo">Como nos encontrar</h2>
+            <p>
+              Estamos localizados no coração de Botafogo, de fácil acesso por
+              transporte público e com estacionamento conveniado nas proximidades.
+            </p>
+
+            <div class="info-blocos">
+
+              <div class="info-bloco">
+                <div class="info-bloco-icone" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                    <circle cx="12" cy="10" r="3"/>
+                  </svg>
+                </div>
+                <div>
+                  <div class="info-bloco-titulo">Endereço</div>
+                  <div class="info-bloco-detalhe">Rua Voluntários da Pátria, 190 — Sala 304<br>Botafogo, Rio de Janeiro – RJ · CEP 22270-010</div>
+                </div>
+              </div>
+
+              <div class="info-bloco">
+                <div class="info-bloco-icone" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12 6 12 12 16 14"/>
+                  </svg>
+                </div>
+                <div>
+                  <div class="info-bloco-titulo">Horário de atendimento</div>
+                  <div class="info-bloco-detalhe">
+                    Segunda a Sexta: 7h às 20h<br>
+                    Sábados: 8h às 13h
+                  </div>
+                </div>
+              </div>
+
+              <div class="info-bloco">
+                <div class="info-bloco-icone" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 0111.19 18.9a19.5 19.5 0 01-5.72-5.72A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+                  </svg>
+                </div>
+                <div>
+                  <div class="info-bloco-titulo">Telefone &amp; WhatsApp</div>
+                  <div class="info-bloco-detalhe">
+                    (21) 3000-0000 · (21) 99000-0000<br>
+                    Retornamos em até 2h úteis
+                  </div>
+                </div>
+              </div>
+
+              <div class="info-bloco">
+                <div class="info-bloco-icone" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
+                    <circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>
+                  </svg>
+                </div>
+                <div>
+                  <div class="info-bloco-titulo">Como chegar</div>
+                  <div class="info-bloco-detalhe">
+                    Metrô: Botafogo (Linha 1 e 2) · 5 min a pé<br>
+                    Ônibus: linhas 571, 583, 584
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Mapa placeholder + endereço -->
+          <div class="mapa-container reveal" style="transition-delay: 0.15s;">
+            <div class="mapa-placeholder" role="img" aria-label="Mapa de localização da clínica FisioVita em Botafogo, Rio de Janeiro">
+              <svg viewBox="0 0 24 24" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+              <p>Visualizar no Google Maps</p>
+              <a href="https://maps.google.com/?q=Botafogo,Rio+de+Janeiro" target="_blank" rel="noopener noreferrer" class="btn-secundario" style="font-size: 0.85rem; padding: 10px 22px;">
+                Abrir mapa
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+            </div>
+            <div class="mapa-endereco">
+              <div>
+                <div class="mapa-dado-titulo">Bairro</div>
+                <div class="mapa-dado-valor">Botafogo</div>
+              </div>
+              <div>
+                <div class="mapa-dado-titulo">Cidade</div>
+                <div class="mapa-dado-valor">Rio de Janeiro – RJ</div>
+              </div>
+              <div>
+                <div class="mapa-dado-titulo">CEP</div>
+                <div class="mapa-dado-valor">22270-010</div>
+              </div>
+              <div>
+                <div class="mapa-dado-titulo">Referência</div>
+                <div class="mapa-dado-valor">Próx. Metrô Botafogo</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         FORMULÁRIO DE CONTATO
+    ════════════════════════════════════════════ -->
+    <section class="contato" id="contato" aria-labelledby="contato-titulo">
+      <div class="container">
+
+        <div class="contato-inner">
+
+          <!-- Informações de contato -->
+          <div class="contato-info reveal">
+            <span class="label-secao">Entre em contato</span>
+            <h2 id="contato-titulo">Agende sua avaliação gratuita</h2>
+            <p>
+              Nossa primeira consulta é uma avaliação completa e sem custo para
+              você. Entre em contato pelo canal de sua preferência ou preencha
+              o formulário ao lado.
+            </p>
+
+            <div class="contato-canais" role="list" aria-label="Canais de atendimento">
+
+              <a href="tel:+552130000000" class="contato-canal" role="listitem" aria-label="Ligar para (21) 3000-0000">
+                <span class="canal-icone verde" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 0111.19 18.9a19.5 19.5 0 01-5.72-5.72A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+                  </svg>
+                </span>
+                (21) 3000-0000 — Telefone
+              </a>
+
+              <a href="https://wa.me/5521990000000" target="_blank" rel="noopener noreferrer" class="contato-canal" role="listitem" aria-label="WhatsApp (21) 99000-0000">
+                <span class="canal-icone wa" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                  </svg>
+                </span>
+                (21) 99000-0000 — WhatsApp
+              </a>
+
+              <a href="mailto:contato@fisiovita.com.br" class="contato-canal" role="listitem" aria-label="Enviar e-mail para contato@fisiovita.com.br">
+                <span class="canal-icone verde" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                    <polyline points="22,6 12,13 2,6"/>
+                  </svg>
+                </span>
+                contato@fisiovita.com.br
+              </a>
+
+              <a href="https://instagram.com/fisiovitario" target="_blank" rel="noopener noreferrer" class="contato-canal" role="listitem" aria-label="Instagram @fisiovitario">
+                <span class="canal-icone insta" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                  </svg>
+                </span>
+                @fisiovitario — Instagram
+              </a>
+
+            </div>
+          </div>
+
+          <!-- Formulário -->
+          <div class="formulario-card reveal" style="transition-delay: 0.15s;">
+
+            <!-- Formulário visível -->
+            <div id="formulario-wrapper">
+              <h3 class="formulario-titulo">Solicitar agendamento</h3>
+
+              <form
+                id="formulario-contato"
+                novalidate
+                aria-label="Formulário de agendamento">
+
+                <!-- Nome e sobrenome -->
+                <div class="form-linha">
+                  <div class="form-grupo">
+                    <label for="nome">Nome <span class="obrigatorio" aria-label="campo obrigatório">*</span></label>
+                    <input
+                      type="text" id="nome" name="nome"
+                      placeholder="Seu nome"
+                      autocomplete="given-name"
+                      required
+                      aria-required="true" />
+                  </div>
+                  <div class="form-grupo">
+                    <label for="sobrenome">Sobrenome <span class="obrigatorio" aria-label="campo obrigatório">*</span></label>
+                    <input
+                      type="text" id="sobrenome" name="sobrenome"
+                      placeholder="Seu sobrenome"
+                      autocomplete="family-name"
+                      required
+                      aria-required="true" />
+                  </div>
+                </div>
+
+                <!-- E-mail -->
+                <div class="form-grupo">
+                  <label for="email">E-mail <span class="obrigatorio" aria-label="campo obrigatório">*</span></label>
+                  <input
+                    type="email" id="email" name="email"
+                    placeholder="seu@email.com"
+                    autocomplete="email"
+                    required
+                    aria-required="true" />
+                </div>
+
+                <!-- Telefone -->
+                <div class="form-grupo">
+                  <label for="telefone">Telefone / WhatsApp</label>
+                  <input
+                    type="tel" id="telefone" name="telefone"
+                    placeholder="(21) 99000-0000"
+                    autocomplete="tel" />
+                </div>
+
+                <!-- Serviço desejado -->
+                <div class="form-grupo">
+                  <label for="servico">Serviço de interesse <span class="obrigatorio" aria-label="campo obrigatório">*</span></label>
+                  <select id="servico" name="servico" required aria-required="true">
+                    <option value="" disabled selected>Selecione um serviço…</option>
+                    <option value="ortopedica">Fisioterapia Ortopédica</option>
+                    <option value="neurologica">Fisioterapia Neurológica</option>
+                    <option value="rpg">RPG &amp; Reeducação Postural</option>
+                    <option value="pilates">Pilates Clínico</option>
+                    <option value="respiratoria">Fisioterapia Respiratória</option>
+                    <option value="drenagem">Drenagem &amp; Estética</option>
+                    <option value="outros">Outros / Não sei ainda</option>
+                  </select>
+                </div>
+
+                <!-- Mensagem -->
+                <div class="form-grupo">
+                  <label for="mensagem">Conte-nos mais (opcional)</label>
+                  <textarea
+                    id="mensagem" name="mensagem"
+                    placeholder="Descreva brevemente sua queixa principal ou dúvidas…"
+                    rows="4"
+                    aria-describedby="mensagem-dica"></textarea>
+                  <span id="mensagem-dica" style="font-size: 0.75rem; color: var(--texto-suave); margin-top: 4px; display: block;">
+                    Essas informações nos ajudam a preparar o melhor atendimento para você.
+                  </span>
+                </div>
+
+                <!-- Checkbox LGPD -->
+                <div class="form-grupo">
+                  <label class="form-checkbox">
+                    <input
+                      type="checkbox" name="lgpd"
+                      required
+                      aria-required="true"
+                      aria-describedby="lgpd-desc" />
+                    <span id="lgpd-desc">
+                      Concordo com o tratamento dos meus dados pessoais conforme a
+                      <a href="#" style="color: var(--verde-escuro); text-decoration: underline;">Política de Privacidade</a>
+                      da FisioVita, em conformidade com a LGPD.
+                    </span>
+                  </label>
+                </div>
+
+                <button type="submit" class="btn-primario form-submit">
+                  Enviar solicitação
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                  </svg>
+                </button>
+
+              </form>
+            </div>
+
+            <!-- Mensagem de sucesso (oculta por padrão) -->
+            <div class="form-sucesso" id="form-sucesso" aria-live="polite" aria-atomic="true">
+              <div class="icone-sucesso" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </div>
+              <h3>Solicitação enviada!</h3>
+              <p>Entraremos em contato em até 2 horas úteis para confirmar seu agendamento. Até breve!</p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ════════════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════════ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <!-- Coluna 1: Marca -->
+        <div class="footer-logo">
+          <a href="#inicio" class="logo" aria-label="FisioVita — Voltar ao topo">
+            <div class="logo-icone" aria-hidden="true">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M9 3h6v6h6v6h-6v6H9v-6H3v-6h6z"/>
+              </svg>
+            </div>
+            <div class="logo-texto">
+              <span class="logo-titulo">FisioVita</span>
+              <span class="logo-subtitulo">Clínica de Fisioterapia</span>
+            </div>
+          </a>
+          <p class="footer-descricao">
+            Cuidamos do seu movimento com ciência, tecnologia e muito carinho.
+            Botafogo, Rio de Janeiro, desde 2012.
+          </p>
+
+          <!-- Redes sociais -->
+          <nav class="redes-sociais" aria-label="Redes sociais">
+
+            <a href="https://instagram.com/fisiovitario" target="_blank" rel="noopener noreferrer" class="rede-social" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              </svg>
+            </a>
+
+            <a href="https://facebook.com/fisiovita" target="_blank" rel="noopener noreferrer" class="rede-social" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+              </svg>
+            </a>
+
+            <a href="https://wa.me/5521990000000" target="_blank" rel="noopener noreferrer" class="rede-social" aria-label="WhatsApp">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+              </svg>
+            </a>
+
+            <a href="https://youtube.com/@fisiovita" target="_blank" rel="noopener noreferrer" class="rede-social" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20.06 12 20.06 12 20.06s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/>
+                <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/>
+              </svg>
+            </a>
+
+            <a href="https://linkedin.com/company/fisiovita" target="_blank" rel="noopener noreferrer" class="rede-social" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                <rect x="2" y="9" width="4" height="12"/>
+                <circle cx="4" cy="4" r="2"/>
+              </svg>
+            </a>
+
+          </nav>
+        </div>
+
+        <!-- Coluna 2: Serviços -->
+        <div class="footer-coluna">
+          <h4>Serviços</h4>
+          <ul>
+            <li><a href="#servicos">Fisioterapia Ortopédica</a></li>
+            <li><a href="#servicos">Fisioterapia Neurológica</a></li>
+            <li><a href="#servicos">RPG &amp; Postural</a></li>
+            <li><a href="#servicos">Pilates Clínico</a></li>
+            <li><a href="#servicos">Fisioterapia Respiratória</a></li>
+            <li><a href="#servicos">Drenagem &amp; Estética</a></li>
+          </ul>
+        </div>
+
+        <!-- Coluna 3: Clínica -->
+        <div class="footer-coluna">
+          <h4>Clínica</h4>
+          <ul>
+            <li><a href="#sobre">Sobre nós</a></li>
+            <li><a href="#quem-somos">Nossa equipe</a></li>
+            <li><a href="#depoimentos">Depoimentos</a></li>
+            <li><a href="#atendimento">Localização</a></li>
+            <li><a href="#contato">Agendamento</a></li>
+            <li><a href="#">Blog de saúde</a></li>
+          </ul>
+        </div>
+
+        <!-- Coluna 4: Convênios e contato -->
+        <div class="footer-coluna">
+          <h4>Contato</h4>
+          <ul>
+            <li>
+              <a href="tel:+552130000000">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 0111.19 18.9a19.5 19.5 0 01-5.72-5.72 2 2 0 01.43-2.4l1.27-1.27a2 2 0 00.45-2.11 13 13 0 00-.7-2.81A2 2 0 005 2H2a2 2 0 00-2 2 19.79 19.79 0 003.07 8.68 19.5 19.5 0 008.69 8.69A19.79 19.79 0 0020 24a2 2 0 002-2v-3a2 2 0 00-1.72-2l-2.81-.7a2 2 0 00-2.11.45z"/>
+                </svg>
+                (21) 3000-0000
+              </a>
+            </li>
+            <li>
+              <a href="https://wa.me/5521990000000" target="_blank" rel="noopener noreferrer">
+                WhatsApp: (21) 99000-0000
+              </a>
+            </li>
+            <li>
+              <a href="mailto:contato@fisiovita.com.br">
+                contato@fisiovita.com.br
+              </a>
+            </li>
+            <li style="margin-top: 8px; font-size: 0.82rem; line-height: 1.7; color: rgba(255,255,255,0.45);">
+              Rua Voluntários da Pátria, 190<br>
+              Sala 304 · Botafogo · RJ
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Rodapé inferior -->
+      <div class="footer-rodape">
+        <p>&copy; 2025 FisioVita Clínica de Fisioterapia. Todos os direitos reservados.</p>
+        <nav class="footer-legal" aria-label="Links legais">
+          <a href="#">Política de Privacidade</a>
+          <a href="#">Termos de Uso</a>
+          <a href="#">LGPD</a>
+        </nav>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Botão voltar ao topo -->
+  <button class="btn-topo" id="btn-topo" aria-label="Voltar ao topo da página">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M18 15l-6-6-6 6"/>
+    </svg>
+  </button>
+
+  <!-- ════════════════════════════════════════════
+       SCRIPTS
+  ════════════════════════════════════════════ -->
+  <script>
+    /* ── Scroll: header + progresso + btn-topo ── */
+    const header       = document.querySelector('.site-header');
+    const progressBar  = document.querySelector('.progresso-leitura');
+    const btnTopo      = document.getElementById('btn-topo');
+
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progresso = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+
+      progressBar.style.width = progresso + '%';
+      progressBar.setAttribute('aria-valuenow', Math.round(progresso));
+
+      header.classList.toggle('scrolled', scrollTop > 60);
+      btnTopo.classList.toggle('visivel', scrollTop > 400);
+    }, { passive: true });
+
+    btnTopo.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    /* ── Intersection Observer: animações de entrada ── */
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer  = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visivel');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    revealEls.forEach(el => observer.observe(el));
+
+    /* ── Menu mobile ── */
+    const btnMenuMobile = document.getElementById('btn-menu-mobile');
+    const navMobile     = document.getElementById('nav-mobile');
+
+    function toggleMenu(aberto) {
+      btnMenuMobile.setAttribute('aria-expanded', String(aberto));
+      navMobile.setAttribute('aria-hidden', String(!aberto));
+      navMobile.classList.toggle('aberto', aberto);
+      document.body.style.overflow = aberto ? 'hidden' : '';
+    }
+
+    btnMenuMobile.addEventListener('click', () => {
+      const estaAberto = btnMenuMobile.getAttribute('aria-expanded') === 'true';
+      toggleMenu(!estaAberto);
+    });
+
+    /* Fechar ao clicar em link do menu mobile */
+    navMobile.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => toggleMenu(false));
+    });
+
+    /* Fechar com ESC */
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') toggleMenu(false);
+    });
+
+    /* ── Formulário: submit simulado ── */
+    const formContato = document.getElementById('formulario-contato');
+    const formWrapper = document.getElementById('formulario-wrapper');
+    const formSucesso = document.getElementById('form-sucesso');
+
+    formContato.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      /* Validação nativa HTML5 */
+      if (!formContato.checkValidity()) {
+        formContato.reportValidity();
+        return;
+      }
+
+      /* Simular envio (substituir por fetch/API real) */
+      const btnSubmit = formContato.querySelector('[type="submit"]');
+      btnSubmit.textContent = 'Enviando…';
+      btnSubmit.disabled = true;
+
+      setTimeout(() => {
+        formWrapper.style.display = 'none';
+        formSucesso.style.display = 'block';
+        formSucesso.focus();
+      }, 1200);
+    });
+
+    /* ── Smooth scroll em links âncoras ── */
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', e => {
+        const alvo = document.querySelector(link.getAttribute('href'));
+        if (!alvo) return;
+        e.preventDefault();
+        const offset = 80; /* altura do header fixo */
+        const topo   = alvo.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top: topo, behavior: 'smooth' });
+      });
+    });
+  </script>
+
+</body>
+</html>
