@@ -5,10 +5,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta
             name="description"
-            content="Clínica de Fisioterapia especializada em reabilitação, prevenção e bem-estar. Atendimento personalizado e humanizado."
+            content="Fisioterapia especializada em reabilitação cardíaca, prevenção e bem-estar. Atendimento personalizado e humanizado."
         />
         <meta name="theme-color" content="#1a3a2a" />
-        <title>Felipe Viana — Clínica de Fisioterapia</title>
+        <title>Felipe Viana — Fisioterapeuta</title>
 
         <!-- ── Fontes ── -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -278,16 +278,24 @@
                 display: block;
                 font-size: 1.35rem;
                 font-weight: 700;
-                color: var(--verde-escuro);
+                color: var(--branco);
                 line-height: 1;
+                transition: color var(--transicao);
             }
             .logo-subtitulo {
                 display: block;
                 font-size: 0.68rem;
                 letter-spacing: 0.14em;
                 text-transform: uppercase;
-                color: var(--verde-claro);
+                color: var(--areia);
                 font-family: var(--fonte-corpo);
+                transition: color var(--transicao);
+            }
+            .site-header.scrolled .logo-titulo {
+                color: var(--verde-escuro);
+            }
+            .site-header.scrolled .logo-subtitulo {
+                color: var(--verde-claro);
             }
 
             /* Menu desktop */
@@ -1740,7 +1748,7 @@
                     <a
                         href="#inicio"
                         class="logo"
-                        aria-label="FisioVita — Página inicial"
+                        aria-label="Felipe Viana — Página inicial"
                     >
                         <div class="logo-icone" aria-hidden="true">
                             <!-- Ícone: cruz médica estilizada -->
@@ -1755,7 +1763,7 @@
                         <div class="logo-texto">
                             <span class="logo-titulo">Felipe Viana</span>
                             <span class="logo-subtitulo"
-                                >Clínica de Fisioterapia</span
+                                >Fisioterapeuta</span
                             >
                         </div>
                     </a>
@@ -1768,7 +1776,7 @@
                     >
                         <a href="#sobre">Sobre</a>
                         <a href="#servicos">Serviços</a>
-                        <a href="#quem-somos">Equipe</a>
+                        <a href="#quem-somos">Sobre</a>
                         <a href="#depoimentos">Depoimentos</a>
                         <a href="#atendimento">Atendimento</a>
                         <a href="#contato">Contato</a>
@@ -1796,7 +1804,7 @@
                             (21) 3000-0000
                         </span>
                         <a href="#contato" class="btn-primario"
-                            >Agendar Consulta</a
+                            >Agende sua consulta</a
                         >
                     </div>
 
@@ -1826,11 +1834,11 @@
         >
             <a href="#sobre" class="nav-mobile-link">Sobre</a>
             <a href="#servicos" class="nav-mobile-link">Serviços</a>
-            <a href="#quem-somos" class="nav-mobile-link">Equipe</a>
+            <a href="#quem-somos" class="nav-mobile-link">Sobre</a>
             <a href="#depoimentos" class="nav-mobile-link">Depoimentos</a>
             <a href="#atendimento" class="nav-mobile-link">Atendimento</a>
             <a href="#contato" class="nav-mobile-link">Contato</a>
-            <a href="#contato" class="btn-primario">Agendar Consulta</a>
+            <a href="#contato" class="btn-primario">Agende sua consulta</a>
         </nav>
 
         <main id="conteudo-principal">
@@ -1862,7 +1870,7 @@
 
                         <div class="hero-acoes">
                             <a href="#contato" class="btn-primario">
-                                Agendar Avaliação Gratuita
+                                Agende sua avaliação gratuita
                                 <svg
                                     width="16"
                                     height="16"
@@ -1878,7 +1886,7 @@
                                 </svg>
                             </a>
                             <a href="#servicos" class="btn-secundario"
-                                >Conhecer Serviços</a
+                                >Conhecer meus serviços</a
                             >
                         </div>
 
@@ -1886,7 +1894,7 @@
                         <div
                             class="hero-stats"
                             role="list"
-                            aria-label="Números da clínica"
+                            aria-label="Números do consultório"
                         >
                             <div role="listitem">
                                 <span class="hero-stat-numero">+2.800</span>
@@ -1933,16 +1941,16 @@
                     <!-- Introdução em duas colunas -->
                     <div class="sobre-intro reveal">
                         <div class="sobre-intro-texto">
-                            <span class="label-secao">Nossa filosofia</span>
+                            <span class="label-secao">Minha filosofia</span>
                             <h2 id="sobre-titulo">
                                 Cuidado integral que transforma vidas
                             </h2>
                             <p>
-                                Na FisioVita, acreditamos que cada paciente é
-                                único. Nossa abordagem integra ciência,
+                                Acredito que cada paciente é
+                                único. Minha abordagem integra ciência,
                                 tecnologia e escuta ativa para oferecer
                                 tratamentos que vão além do alívio da dor —
-                                buscamos a transformação e o equilíbrio
+                                busco a transformação e o equilíbrio
                                 duradouro.
                             </p>
                         </div>
@@ -1960,7 +1968,7 @@
                     <div
                         class="sobre-pilares"
                         role="list"
-                        aria-label="Nossos pilares"
+                        aria-label="Meus pilares"
                     >
                         <!-- Pilar 1: Diagnóstico Preciso -->
                         <article class="pilar-card reveal" role="listitem">
@@ -2013,7 +2021,7 @@
                             <h3>Tratamento Personalizado</h3>
                             <p>
                                 Cada protocolo é criado exclusivamente para
-                                você. Respeitamos seu ritmo, seu histórico e
+                                você. Respeito seu ritmo, seu histórico e
                                 seus objetivos de vida para maximizar os
                                 resultados.
                             </p>
@@ -2041,9 +2049,9 @@
                             </div>
                             <h3>Acompanhamento Contínuo</h3>
                             <p>
-                                Monitoramos sua evolução em cada etapa.
-                                Ajustamos o plano sempre que necessário e
-                                celebramos cada conquista junto com você.
+                                Monitoro sua evolução em cada etapa.
+                                Ajusto o plano sempre que necessário e
+                                celebro cada conquista junto com você.
                             </p>
                         </article>
                     </div>
@@ -2061,8 +2069,8 @@
                 <div class="container">
                     <div class="servicos-cabecalho reveal">
                         <div>
-                            <span class="label-secao">O que oferecemos</span>
-                            <h2 id="servicos-titulo">Nossos serviços</h2>
+                            <span class="label-secao">O que ofereço</span>
+                            <h2 id="servicos-titulo">Meus serviços</h2>
                         </div>
                         <p>
                             Especialidades para cada fase da sua reabilitação e
@@ -2239,15 +2247,14 @@
             >
                 <div class="container">
                     <div class="quem-somos-inner">
-                        <!-- Visual com foto e cartões flutuantes -->
                         <div class="quem-somos-visual reveal">
                             <div
                                 class="quem-somos-foto-principal"
-                                aria-label="Foto da equipe FisioVita"
+                                aria-label="Foto de Felipe Viana"
                             >
                                 <img
                                     src="equipe.jpg"
-                                    alt="Equipe FisioVita"
+                                    alt="Felipe Viana"
                                     style="
                                         width: 100%;
                                         height: 100%;
@@ -2271,10 +2278,9 @@
                                 </svg>
                             </div>
 
-                            <!-- Cartão flutuante: credencial -->
                             <div
                                 class="credencial-flutuante"
-                                aria-label="Fisioterapeuta principal"
+                                aria-label="Fisioterapeuta"
                             >
                                 <div
                                     class="credencial-icone"
@@ -2301,7 +2307,6 @@
                                 </div>
                             </div>
 
-                            <!-- Cartão flutuante: experiência -->
                             <div
                                 class="anos-flutuante"
                                 aria-label="12 anos de experiência"
@@ -2311,108 +2316,57 @@
                             </div>
                         </div>
 
-                        <!-- Texto -->
                         <div
                             class="quem-somos-texto reveal"
                             style="transition-delay: 0.15s"
                         >
-                            <span class="label-secao">Nossa equipe</span>
+                            <span class="label-secao">Quem sou</span>
                             <h2 id="quem-somos-titulo">
-                                Profissionais apaixonados pelo cuidado
+                                Paixão pela reabilitação cardíaca
                             </h2>
                             <p>
-                                A FisioVita foi fundada em 2012 com uma missão
-                                clara: oferecer fisioterapia de excelência,
-                                acessível e humanizada. Ao longo dos anos,
-                                construímos uma equipe multidisciplinar
-                                comprometida com a transformação da saúde de
-                                cada paciente.
+                                Sou o Dr. Felipe Viana, fisioterapeuta
+                                especializado em reabilitação cardiovascular.
+                                Desde 2012, meu trabalho é dedicado a ajudar
+                                pessoas a recuperarem o movimento, o fôlego e a
+                                confiança após eventos cardíacos.
                             </p>
                             <p>
-                                Nossos fisioterapeutas têm formação nas melhores
-                                instituições do Brasil e participam regularmente
-                                de congressos e cursos de atualização para
-                                trazer sempre o que há de mais moderno.
+                                Acredito que cada paciente precisa de um
+                                protocolo feito sob medida — por isso, combino
+                                avaliação criteriosa, exercícios supervisionados
+                                e acolhimento em cada sessão.
                             </p>
 
-                            <!-- Formações e especializações -->
                             <div
                                 class="formacoes"
                                 role="list"
                                 aria-label="Formações e especializações"
                             >
                                 <div class="formacao-item" role="listitem">
-                                    Fisioterapia Ortopédica e Traumatológica
+                                    Especialização em Fisioterapia Cardiorrespiratória
                                 </div>
                                 <div class="formacao-item" role="listitem">
-                                    Fisioterapia Neurológica
-                                </div>
-                                <div class="formacao-item" role="listitem">
-                                    Pilates Clínico Certificado
+                                    Reabilitação Cardiovascular
                                 </div>
                                 <div class="formacao-item" role="listitem">
                                     Terapia Manual Avançada
                                 </div>
                                 <div class="formacao-item" role="listitem">
-                                    Reabilitação Esportiva
+                                    Pilates Clínico
                                 </div>
                                 <div class="formacao-item" role="listitem">
-                                    Fisioterapia Respiratória
+                                    Fisiologia do Exercício
+                                </div>
+                                <div class="formacao-item" role="listitem">
+                                    Cuidados Pós-operatório Cardíaco
                                 </div>
                             </div>
 
                             <a href="#contato" class="btn-primario"
-                                >Conheça Nossa Equipe</a
+                                >Agende sua Avaliação</a
                             >
                         </div>
-                    </div>
-
-                    <!-- Cards da equipe -->
-                    <div
-                        class="equipe reveal"
-                        role="list"
-                        aria-label="Membros da equipe"
-                    >
-                        <article class="equipe-card" role="listitem">
-                            <div class="equipe-foto v1" aria-hidden="true">
-                                MO
-                            </div>
-                            <div class="equipe-info">
-                                <h3>Dr. Felipe Viana</h3>
-                                <p>
-                                    Fisioterapia Ortopédica &amp; Terapia Manual
-                                </p>
-                                <span class="equipe-crefito"
-                                    >CREFITO: 135.101-F</span
-                                >
-                            </div>
-                        </article>
-
-                        <article class="equipe-card" role="listitem">
-                            <div class="equipe-foto v2" aria-hidden="true">
-                                AS
-                            </div>
-                            <div class="equipe-info">
-                                <h3>Dra. Ana Santos</h3>
-                                <p>Fisioterapia Neurológica &amp; RPG</p>
-                                <span class="equipe-crefito"
-                                    >CREFITO-2 · 92.110-F</span
-                                >
-                            </div>
-                        </article>
-
-                        <article class="equipe-card" role="listitem">
-                            <div class="equipe-foto v3" aria-hidden="true">
-                                RC
-                            </div>
-                            <div class="equipe-info">
-                                <h3>Dr. Rafael Costa</h3>
-                                <p>Pilates Clínico &amp; Esportiva</p>
-                                <span class="equipe-crefito"
-                                    >CREFITO-2 · 85.674-F</span
-                                >
-                            </div>
-                        </article>
                     </div>
                 </div>
             </section>
@@ -2428,9 +2382,9 @@
                 <div class="container">
                     <div class="depoimentos-cabecalho reveal">
                         <span class="label-secao">Depoimentos</span>
-                        <h2 id="depoimentos-titulo">
-                            O que nossos pacientes dizem
-                        </h2>
+                            <h2 id="depoimentos-titulo">
+                                O que meus pacientes dizem
+                            </h2>
                     </div>
 
                     <div
@@ -2458,8 +2412,8 @@
                             </div>
                             <p class="depoimento-texto">
                                 Após uma cirurgia no joelho, achei que nunca
-                                voltaria a jogar futebol. Com o Dr. Marcos e a
-                                equipe da FisioVita, voltei a jogar em 4 meses.
+                                voltaria a jogar futebol. Com o Dr. Felipe,
+                                voltei a jogar em 4 meses.
                                 O tratamento foi perfeito, humano e muito
                                 profissional.
                             </p>
@@ -2500,9 +2454,9 @@
                             </div>
                             <p class="depoimento-texto">
                                 Sofri um AVC e perdi movimentos no lado direito.
-                                A Dra. Ana foi incansável na minha recuperação.
+                                O Dr. Felipe foi incansável na minha recuperação.
                                 Hoje consigo caminhar sozinha e retomei minha
-                                independência. Gratidão eterna a essa equipe.
+                                independência. Gratidão eterna.
                             </p>
                             <div class="depoimento-autor">
                                 <div class="autor-avatar" aria-hidden="true">
@@ -2541,10 +2495,9 @@
                             </div>
                             <p class="depoimento-texto">
                                 Dor crônica nas costas há 8 anos, sem solução.
-                                Em 3 meses de RPG e Pilates Clínico na
-                                FisioVita, minha vida mudou completamente.
-                                Estrutura impecável, equipe acolhedora e
-                                resultados reais.
+                                Em 3 meses de acompanhamento com o
+                                Dr. Felipe, minha vida mudou completamente.
+                                Resultados reais e atendimento acolhedor.
                             </p>
                             <div class="depoimento-autor">
                                 <div class="autor-avatar" aria-hidden="true">
@@ -2579,11 +2532,10 @@
                             <span class="label-secao"
                                 >Localização &amp; horários</span
                             >
-                            <h2 id="atendimento-titulo">Como nos encontrar</h2>
+                            <h2 id="atendimento-titulo">Como me encontrar</h2>
                             <p>
-                                Estamos localizados no coração de Botafogo, de
-                                fácil acesso por transporte público e com
-                                estacionamento conveniado nas proximidades.
+                                Estou localizado em Vila da Penha, de
+                                fácil acesso por transporte público.
                             </p>
 
                             <div class="info-blocos">
@@ -2666,7 +2618,7 @@
                                         </div>
                                         <div class="info-bloco-detalhe">
                                             (21) 99004-0402<br />
-                                            Retornamos em até 2h úteis
+                                            Retorno em até 2h úteis
                                         </div>
                                     </div>
                                 </div>
@@ -2724,7 +2676,7 @@
                             <div
                                 class="mapa-placeholder"
                                 role="img"
-                                aria-label="Mapa de localização da clínica FisioVita em Botafogo, Rio de Janeiro"
+                                aria-label="Mapa de localização em Vila da Penha, Rio de Janeiro"
                             >
                                 <svg
                                     viewBox="0 0 24 24"
@@ -2814,10 +2766,10 @@
                         <div class="contato-info reveal">
                             <span class="label-secao">Entre em contato</span>
                             <h2 id="contato-titulo">
-                                Agende sua avaliação gratuita
+                                Agende sua avaliação
                             </h2>
                             <p>
-                                Nossa primeira consulta é uma avaliação completa
+                                A primeira consulta é uma avaliação completa
                                 e sem custo para você. Entre em contato pelo
                                 canal de sua preferência ou preencha o
                                 formulário ao lado.
@@ -3061,23 +3013,23 @@
                                             <option value="" disabled selected>
                                                 Selecione um serviço…
                                             </option>
-                                            <option value="ortopedica">
-                                                Fisioterapia Ortopédica
+                                            <option value="pos-infarto">
+                                                Pós-infarto / Angioplastia
                                             </option>
-                                            <option value="neurologica">
-                                                Fisioterapia Neurológica
+                                            <option value="pos-cirurgia">
+                                                Pós-cirurgia cardíaca
                                             </option>
-                                            <option value="rpg">
-                                                RPG &amp; Reeducação Postural
+                                            <option value="insuficiencia">
+                                                Insuficiência cardíaca
                                             </option>
-                                            <option value="pilates">
-                                                Pilates Clínico
+                                            <option value="falta-ar">
+                                                Falta de ar e baixa tolerância
                                             </option>
-                                            <option value="respiratoria">
-                                                Fisioterapia Respiratória
+                                            <option value="risco-cardiovascular">
+                                                Risco cardiovascular
                                             </option>
-                                            <option value="drenagem">
-                                                Drenagem &amp; Estética
+                                            <option value="idosos">
+                                                Idosos e reabilitação
                                             </option>
                                             <option value="outros">
                                                 Outros / Não sei ainda
@@ -3088,7 +3040,7 @@
                                     <!-- Mensagem -->
                                     <div class="form-grupo">
                                         <label for="mensagem"
-                                            >Conte-nos mais (opcional)</label
+                                            >Conte-me mais (opcional)</label
                                         >
                                         <textarea
                                             id="mensagem"
@@ -3106,7 +3058,7 @@
                                                 display: block;
                                             "
                                         >
-                                            Essas informações nos ajudam a
+                                            Essas informações me ajudam a
                                             preparar o melhor atendimento para
                                             você.
                                         </span>
@@ -3135,7 +3087,7 @@
                                                     "
                                                     >Política de Privacidade</a
                                                 >
-                                                da FisioVita, em conformidade
+                                                do Dr. Felipe Viana, em conformidade
                                                 com a LGPD.
                                             </span>
                                         </label>
@@ -3193,8 +3145,8 @@
                                 <p>
                                     Uma janela do WhatsApp foi aberta com sua
                                     mensagem pré-preenchida. Basta enviar e
-                                    nossa equipe retornará em até 2 horas úteis.
-                                    Até breve! 💚
+                                    retornarei em até 2 horas úteis.
+                                    Até breve!
                                 </p>
                             </div>
                         </div>
@@ -3214,7 +3166,7 @@
                         <a
                             href="#inicio"
                             class="logo"
-                            aria-label="FisioVita — Voltar ao topo"
+                            aria-label="Felipe Viana — Voltar ao topo"
                         >
                             <div class="logo-icone" aria-hidden="true">
                                 <svg
@@ -3226,15 +3178,15 @@
                                 </svg>
                             </div>
                             <div class="logo-texto">
-                                <span class="logo-titulo">FisioVita</span>
+                                <span class="logo-titulo">Felipe Viana</span>
                                 <span class="logo-subtitulo"
-                                    >Clínica de Fisioterapia</span
+                                    >Fisioterapeuta</span
                                 >
                             </div>
                         </a>
                         <p class="footer-descricao">
-                            Cuidamos do seu movimento com ciência, tecnologia e
-                            muito carinho. Botafogo, Rio de Janeiro, desde 2012.
+                            Cuido do seu movimento com ciência, tecnologia e
+                            muito carinho. Vila da Penha, Rio de Janeiro, desde 2012.
                         </p>
 
                         <!-- Redes sociais -->
@@ -3335,30 +3287,28 @@
                         <h4>Serviços</h4>
                         <ul>
                             <li>
-                                <a href="#servicos">Fisioterapia Ortopédica</a>
+                                <a href="#servicos">Pós-infarto / Angioplastia</a>
                             </li>
                             <li>
-                                <a href="#servicos">Fisioterapia Neurológica</a>
+                                <a href="#servicos">Pós-cirurgia cardíaca</a>
                             </li>
-                            <li><a href="#servicos">RPG &amp; Postural</a></li>
-                            <li><a href="#servicos">Pilates Clínico</a></li>
+                            <li><a href="#servicos">Insuficiência cardíaca</a></li>
+                            <li><a href="#servicos">Falta de ar e fadiga</a></li>
                             <li>
-                                <a href="#servicos"
-                                    >Fisioterapia Respiratória</a
-                                >
+                                <a href="#servicos">Risco cardiovascular</a>
                             </li>
                             <li>
-                                <a href="#servicos">Drenagem &amp; Estética</a>
+                                <a href="#servicos">Idosos e reabilitação</a>
                             </li>
                         </ul>
                     </div>
 
-                    <!-- Coluna 3: Clínica -->
+                    <!-- Coluna 3: Profissional -->
                     <div class="footer-coluna">
-                        <h4>Clínica</h4>
+                        <h4>Profissional</h4>
                         <ul>
-                            <li><a href="#sobre">Sobre nós</a></li>
-                            <li><a href="#quem-somos">Nossa equipe</a></li>
+                            <li><a href="#sobre">Filosofia</a></li>
+                            <li><a href="#quem-somos">Quem sou</a></li>
                             <li><a href="#depoimentos">Depoimentos</a></li>
                             <li><a href="#atendimento">Localização</a></li>
                             <li><a href="#contato">Agendamento</a></li>
@@ -3424,7 +3374,7 @@
                 <!-- Rodapé inferior -->
                 <div class="footer-rodape">
                     <p>
-                        &copy; 2026 Clínica de Fisioterapia Felipe Viana. Todos
+                        &copy; 2026 Felipe Viana Fisioterapeuta. Todos
                         os direitos reservados.
                     </p>
                     <nav class="footer-legal" aria-label="Links legais">
@@ -3534,19 +3484,19 @@
 
             /* ── Formulário: envio via WhatsApp ── */
             const WHATSAPP_NUMERO =
-                "5521990040402"; /* ← altere para o número real da clínica (DDI+DDD+número, sem espaços ou símbolos) */
+                "5521990040402"; /* ← altere para o número real (DDI+DDD+número, sem espaços ou símbolos) */
             const formContato = document.getElementById("formulario-contato");
             const formWrapper = document.getElementById("formulario-wrapper");
             const formSucesso = document.getElementById("form-sucesso");
 
             /* Mapa legível para o campo "serviço" */
             const servicoLabels = {
-                ortopedica: "Fisioterapia Ortopédica",
-                neurologica: "Fisioterapia Neurológica",
-                rpg: "RPG & Reeducação Postural",
-                pilates: "Pilates Clínico",
-                respiratoria: "Fisioterapia Respiratória",
-                drenagem: "Drenagem & Estética",
+                "pos-infarto": "Pós-infarto / Angioplastia",
+                "pos-cirurgia": "Pós-cirurgia cardíaca",
+                insuficiencia: "Insuficiência cardíaca",
+                "falta-ar": "Falta de ar e baixa tolerância",
+                "risco-cardiovascular": "Risco cardiovascular",
+                idosos: "Idosos e reabilitação",
                 outros: "Outros / Não sei ainda",
             };
 
